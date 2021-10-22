@@ -3,6 +3,7 @@ import { About } from './pages/about'
 import { FAQ } from './pages/faq'
 import Display from './pages/display'
 import { Latest, Hdao, Random, Featured } from './pages/feeds'
+import { BulkMint } from './pages/bulk-mint'
 import { Mint } from './pages/mint'
 import { ObjktDisplay } from './pages/objkt-display'
 import { Collaborate, CollabDisplay } from './pages/collaborate'
@@ -62,6 +63,11 @@ export const routes = [
     exact: false,
     path: '/mint',
     component: Mint,
+  },
+  {
+    exact: false,
+    path: '/bulk-mint',
+    component: BulkMint,
   },
   {
     exact: false,

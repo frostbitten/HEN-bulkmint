@@ -1,3 +1,11 @@
+# Mass/Multi/Bulk Minting hicetnunc UI
+
+A fork of HEN to implement yet another bulk minter. No guarantees.
+
+If you found this tool helpful please consider donating to or buying one of my works: https://www.hicetnunc.xyz/tz/tz1NoYMQaZa9Pz6Hwfx6B2x1TaGU3fSiBbW8
+
+Original readme below:
+~~~~~~~~~~~~~~~~~~~~~~~~
 # hicetnunc UI
 
 hicetnunc UI is intended to experiment with different smart contracts designs.

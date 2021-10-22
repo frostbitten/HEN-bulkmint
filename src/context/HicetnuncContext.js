@@ -329,6 +329,81 @@ class HicetnuncContextProviderClass extends Component {
 
       objkt: 'KT1Hkg5qeNhfwpKW4fXvq7HGZB9z2EnmCCA9',
 
+      mintMany: async (mints) => {
+        // show feedback component with followind message and progress indicator
+
+        console.log('mintMany!',mints)
+
+		const contract = await Tezos.wallet.at(this.state.proxyAddress || this.state.v1)
+		let batch = await Tezos.wallet.batch()
+		
+		await mints.forEach( async (_objkt)=>{
+			const {tz, amount, cid, royalties} = _objkt
+			this.state.setFeedback({
+			  visible: true,
+			  message: 'preparing OBJKT',
+			  progress: true,
+			  confirm: false,
+			})
+
+				// .withContractCall(contract.methods.interact('tezos'))
+				batch = await batch.withContractCall(
+					contract.methods.mint_OBJKT(
+						tz,
+						parseFloat(amount),
+						('ipfs://' + cid)
+						  .split('')
+						  .reduce(
+							(hex, c) =>
+							  (hex += c.charCodeAt(0).toString(16).padStart(2, '0')),
+							''
+						  ),
+						parseFloat(royalties) * 10
+					  )
+					  // .send({ amount: 0, storageLimit: 310 })
+				  )
+				  
+				
+          })
+		  
+		const batchOp = await batch.send({ amount: 0, storageLimit: 310 });
+		console.log('batchOp opHash:', batchOp.opHash);
+		batchOp.confirmation().then((op) => {
+			console.log('op:',op)
+			this.setState({ op: batchOp.opHash }) // save hash
+			// if everything goes okay, show the success message and redirect to profile
+			if(op.completed){
+				this.state.setFeedback({
+					message: 'OBJKT(s) minted successfully',
+					progress: true,
+					confirm: false,
+				})
+
+				// hide after 2 seconds
+				setTimeout(() => {
+					this.state.setFeedback({
+					  visible: false,
+					})
+				}, 2000)
+			}
+		}).catch((err) => {
+			console.error('Sending operation error:',err)
+			// if any error happens
+			this.state.setFeedback({
+				message: 'an error occurred ❌',
+				progress: true,
+				confirm: false,
+			})
+
+			// hide after 1 second
+			setTimeout(() => {
+				this.state.setFeedback({
+					visible: false,
+				})
+			}, 1000)
+		})
+	  },
+
       mint: async (tz, amount, cid, royalties) => {
         // show feedback component with followind message and progress indicator
 

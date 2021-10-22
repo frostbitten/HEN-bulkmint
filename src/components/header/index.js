@@ -132,6 +132,13 @@ export const Header = () => {
                         </Primary>
                       </Button>
                     </li>
+                    <li>
+                      <Button onClick={() => handleRoute('/bulk-mint')}>
+                        <Primary>
+                          Bulk OBJKT<span style={{ fontSize: '16px' }}> (mint)</span>
+                        </Primary>
+                      </Button>
+                    </li>
 {/*                     <li>
                       <Button onClick={() => handleRoute('/collaborate')}>
                         <Primary>collaborate</Primary>

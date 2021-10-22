@@ -12,7 +12,7 @@ export const Upload = ({
   onChange = () => null,
 }) => {
   const language = getLanguage()
-  const [title, setTitle] = useState(label)
+  const [title, setTitle] = useState()
 
   const onFileChange = async (e) => {
     const { files } = e.target
@@ -42,7 +42,7 @@ export const Upload = ({
   return (
     <div className={styles.container}>
       <label>
-        {title}
+        {title ?? label}
         <input {...props} onChange={onFileChange} />
       </label>
       <div className={styles.allowed}>

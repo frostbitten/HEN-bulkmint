@@ -1,0 +1,31 @@
+title: Hello world!
+~~~~~~~~~~~~~~~~
+amount: 1
+~~~~~~~~~~~~~~~~
+royalties: 25
+~~~~~~~~~~~~~~~~
+tags: hello world, test
+~~~~~~~~~~~~~~~~
+additionalCreators: tz1NoYMQaZa9Pz6Hwfx6B2x1TaGU3fSiBbW8, tz1SAwHtsktfLWBqvMP3d4S9zizUaYvX7Xxi
+~~~~~~~~~~~~~~~~
+attributes:
+  - 
+    name: hello
+    value: world
+  - 
+    name: Grade
+    value: 1
+    type: integer
+  - 
+    name: testing
+    value: 12.34
+    type: number
+  - 
+    name: awesomeness
+    value: 100
+    type: percentage
+		
+:attributes
+~~~~~~~~~~~~~~~~
+description:
+I created this artwork to show how I felt when I landed on earth.

@@ -22,6 +22,7 @@ export const PATH = {
   FAQ: '/faq',
   SYNC: '/sync',
   MINT: '/mint',
+  BULKMINT: '/bulk-mint',
   OBJKT: '/objkt',
   GALLERY: '/gallery',
   TAGS: '/tags',
